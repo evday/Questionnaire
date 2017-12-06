@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
-#Author:沈中秋
 #date:"2017-12-05,22:52"
 import re
 
