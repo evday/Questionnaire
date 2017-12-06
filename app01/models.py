@@ -65,6 +65,7 @@ class Question(models.Model):
         (3,"评价"),
     )
     ct = models.IntegerField(choices=question_type)
+    questionnaire = models.ForeignKey(to="Questionnaire")
 
     class Meta:
         verbose_name_plural = "问题表"

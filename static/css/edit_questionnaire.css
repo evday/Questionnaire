@@ -1,0 +1,53 @@
+.hide {
+    display: none;
+}
+
+ol {
+    padding: 0;
+    list-style: none;
+    counter-reset: sectioncounter
+}
+
+.form-horizontal > li:before {
+    content: '问题' counter(sectioncounter) ':';
+
+    counter-increment: sectioncounter;
+    font-size: 18px;
+    color: #d4d4d4;
+
+}
+
+/*.form-horizontal > li:nth-of-type(odd) {*/
+    /*background-color: #f9f9f9;*/
+/*}*/
+ol li:nth-child(odd){
+    background-color: #f9f9f9;
+}
+
+ol li:nth-child(even){
+    background-color: red;
+}
+
+
+
+.fork{
+
+
+
+    margin-left: 1050px;
+    font-size: 30px;
+    color: gainsboro;
+}
+
+.col-md-2 {
+    width: 13%;
+}
+
+.panel-body {
+    padding: 20px 0;
+
+}
+
+.pk {
+    padding: 20px;
+}

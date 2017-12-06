@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+    编辑问卷
+{% endblock %}
+
+{% block content %}
+
+    <p style="margin-left: 950px;margin-bottom: 10px">
+        <button class="btn btn-success add_question ">添加</button>
+        &nbsp;&nbsp; <a href="">
+        <button class="btn btn-primary">保存</button>
+    </a></p>
+
+
+    <ol class="question_list">
+
+
+            <form class="form-horizontal">
+ {% for item in form_list %}
+                <li>
+                    <div pk="{{ item.obj.id }}" class="pk">
+                        <div class="form-group">
+                            <label for="id_caption" class="col-md-2 control-label">问题名称：</label>
+                            <div class="col-md-10">
+                                {{ item.form.caption }}{{ item.form.eroors.caption }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="id_ct" class="col-md-2 control-label">问题类型：</label>
+                            <div class="col-md-3">
+                                {{ item.form.ct }}<a href="#" class="{{ item.option_class }}"> +
+                                添加选项</a>
+                                <ul>
+                                    {% for v in item.options %}
+                                        <li id="{{ v.obj.id }}">{{ v.form }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <span class="fork">×</span>
+                </li>
+  {% endfor %}
+            </form>
+
+
+    </ol>
+    <script>
+        $(".question_list").on("click", ".fork", function () {
+            $(this).parent().remove()
+        });
+        $('.add_question').click(function () {
+          s = '<form class="form-horizontal"><li><div class="pk"><div class="form-group"><label for="id_caption" class="col-md-2 control-label">问题名称：</label><div class="col-md-10"><textarea name="caption" cols="60" rows="2" class="form-control" maxlength="64" required="" id="id_caption"></textarea></div></div><div class="form-group"><label for="id_ct" class="col-md-2 control-label">问题类型：</label><div class="col-md-3"><select name="ct" class="form-control" required="" id="id_ct"><option value="" selected="">---------</option> <option value="1">打分</option> <option value="2">单选</option><option value="3">评价</option></select><a href="#" class="hide"> +添加选项</a><ul></ul></div></div></div><span class="fork">×</span></li></form>';
+
+            $(".question_list").append(s)
+        })
+
+    </script>
+{% endblock %}

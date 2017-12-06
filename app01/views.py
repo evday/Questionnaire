@@ -3,7 +3,7 @@ import json
 from django.shortcuts import render,HttpResponse,redirect
 
 from . import models
-from .forms import QuestionnaireForm
+from .forms import QuestionnaireForm,QuestionModelForm,OptionModelForm
 
 # Create your views here.
 def index(request):
@@ -57,3 +57,37 @@ def add(request):
             return redirect("/index/")
         else:
             return render(request, 'add.html', {"form": form})
+
+
+def edit_questionnaire(request,pid):
+    '''
+      编辑问卷
+      :param request:
+      :param pid: 问卷id
+      :return:
+      '''
+
+    def inner():
+
+        #获取当前问卷中的所有问题
+        que_list = models.Question.objects.filter(questionnaire_id=pid)
+        if not que_list:
+            #说明当前问卷还没有问题
+            form = QuestionModelForm()
+            yield {"form":form,"obj":None,"option_class":"hide","options":None}
+        else:
+            #含问题的问卷
+            for que in que_list:
+                form =  QuestionModelForm()
+                temp = {"form":form,"obj":que,"option_class":"hide","options":None}
+                if que.ct == 2:
+                    temp["option_class"] = ''
+                    #获取当前问题的所有选项
+                    option_model_list = []
+                    option_list = models.Option.objects.filter(question=que)
+                    for v in option_list:
+                        vm = OptionModelForm(instance=v)
+                        option_model_list.append(vm)
+                    temp["options"] = option_model_list
+                yield temp
+    return render(request,"edit_questionnaire.html",{"form_list":inner()})
