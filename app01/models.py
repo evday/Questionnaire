@@ -45,7 +45,8 @@ class Questionnaire(models.Model):
     title = models.CharField(verbose_name="问卷标题",max_length=128)
     cls = models.ForeignKey(verbose_name="调查班级",to="ClassList")
     creator = models.ForeignKey(verbose_name="创建者",to="UserInfo")
-    take_part_num = models.IntegerField(verbose_name="参与人数",default=0)
+    stu_num = models.IntegerField(verbose_name="参与人数",default=0)
+
 
 
     class Meta:

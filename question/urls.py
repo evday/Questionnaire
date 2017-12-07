@@ -5,7 +5,7 @@ from app01 import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^index/$', views.index),
+    url(r'^$', views.index),
     url(r'^add_questionnaire/$', views.add),
     url(r'^login/$', views.login),
     url(r'^edit_questionnaire/(\d+)/$', views.edit_questionnaire),

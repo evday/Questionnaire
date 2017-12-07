@@ -28,7 +28,8 @@ class QuestionModelForm(ModelForm):
         model = models.Question
         fields = "__all__"
         error_messages = {
-            "caption":{"required":"名称不能为空"}
+            "caption":{"required":"名称不能为空"},
+
         }
         widgets = {
             "caption":wid.Textarea(attrs={"class":"form-control", "rows":"2" ,"cols":"60"}),
@@ -36,7 +37,13 @@ class QuestionModelForm(ModelForm):
 
         }
 
+
 class OptionModelForm(ModelForm):
     class Meta:
         model = models.Option
         fields = "__all__"
+        widgets = {
+            "name": wid.TextInput (attrs={"class": "form-control"}),
+            "score": wid.TextInput(attrs={"class": "form-control"})
+
+        }

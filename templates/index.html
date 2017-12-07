@@ -4,6 +4,7 @@
 {% endblock %}
 
 {% block content %}
+     <div class="panel-body ">
            <div>
                             <a href="/add_questionnaire/"><button class="btn btn-success">添加</button></a>
                             <table class="table table-bordered table-hover">
@@ -25,7 +26,7 @@
 
                                         <td><a href="">{{ questionnaire.title }}</a></td>
                                         <td>{{ questionnaire.cls.title }}</td>
-                                        <td>{{ questionnaire.take_part_num }}/{{ questionnaire.cls.student_set.all.count }}</td>
+                                        <td>{{ questionnaire.stu_num }}/{{ questionnaire.cls.student_set.all.count }}</td>
                                         <td><a href="/edit_questionnaire/{{ questionnaire.id }}/">编辑问卷</a></td>
                                         <td>
                                             <a href="">/student/evaluate/{{ questionnaire.id }}/{{ questionnaire.cls.id }}/</a>
@@ -39,4 +40,5 @@
                                 </tbody>
                             </table>
                         </div>
+     </div>
 {% endblock %}

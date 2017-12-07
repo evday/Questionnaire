@@ -17,24 +17,17 @@ ol {
 
 }
 
-/*.form-horizontal > li:nth-of-type(odd) {*/
-    /*background-color: #f9f9f9;*/
-/*}*/
-ol li:nth-child(odd){
+.form-horizontal li:nth-child(odd) {
     background-color: #f9f9f9;
 }
 
-ol li:nth-child(even){
-    background-color: red;
+.form-horizontal li:nth-child(even) {
+    background-color: white;
 }
 
+.fork {
 
-
-.fork{
-
-
-
-    margin-left: 1050px;
+    margin-left: 1000px;
     font-size: 30px;
     color: gainsboro;
 }
@@ -44,10 +37,23 @@ ol li:nth-child(even){
 }
 
 .panel-body {
+    padding: 20px 50px;
+
+}
+
+.panel-body.edit_ques {
     padding: 20px 0;
 
 }
 
 .pk {
     padding: 20px;
+}
+
+.container-fluid {
+    margin-top: 50px
+}
+
+.table {
+    margin-top: 10px;
 }

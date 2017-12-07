@@ -8,6 +8,13 @@ from .forms import QuestionnaireForm,QuestionModelForm,OptionModelForm
 # Create your views here.
 def index(request):
     questionnaire_list = models.Questionnaire.objects.all()
+
+    for i in questionnaire_list:
+        v = models.Answer.objects.filter(question__questionnaire=i).distinct().count()
+
+        i.stu_num = v
+
+
     return render(request,'index.html',locals())
 
 
@@ -67,27 +74,48 @@ def edit_questionnaire(request,pid):
       :return:
       '''
 
-    def inner():
+    #
+    # que_list = models.Question.objects.filter(questionnaire_id=pid)
+    # if not que_list:
+    #     #新创建的问卷，还没有问题：
+    #     form_list = []
+    #     form = QuestionModelForm()
+    #     form_list.append(form)
+    # else:
+    #     form_list = []
+    #     for que in que_list:
+    #         form = QuestionModelForm(instance=que)
+    #         form_list.append(form)
+    #
+    #         option_models_list = []
+    #         option_list = models.Option.objects.filter(question=que)
+    #         for option in option_list:
+    #             print(option)
+    #             op = OptionModelForm(instance=option)
+    #             print(op)
+    #             option_models_list.append(op)
 
-        #获取当前问卷中的所有问题
-        que_list = models.Question.objects.filter(questionnaire_id=pid)
-        if not que_list:
-            #说明当前问卷还没有问题
+
+    def inner():
+        que_list = models.Question.objects.filter(questionnaire_id=pid)#获取当前问卷的所有问题
+        if not que_list:#如果没有，表示该问卷还没有问题
             form = QuestionModelForm()
-            yield {"form":form,"obj":None,"option_class":"hide","options":None}
+            yield {'form': form, 'obj': None, 'options_cls': 'hide', 'options': None}
         else:
-            #含问题的问卷
             for que in que_list:
-                form =  QuestionModelForm()
-                temp = {"form":form,"obj":que,"option_class":"hide","options":None}
+                form = QuestionModelForm(instance=que)
+                temp = {"form":form,"obj":que,"options_cls":"hide","options":None}
                 if que.ct == 2:
-                    temp["option_class"] = ''
+                    temp["options_cls"] = ""
                     #获取当前问题的所有选项
-                    option_model_list = []
-                    option_list = models.Option.objects.filter(question=que)
-                    for v in option_list:
-                        vm = OptionModelForm(instance=v)
-                        option_model_list.append(vm)
-                    temp["options"] = option_model_list
+                    def inner_lop(xxx):
+                        option_list = models.Option.objects.filter(question=xxx)
+                        for v in option_list:
+                            yield {"form":OptionModelForm(instance=v),"obj":v}
+                    temp["options"] = inner_lop(que)
                 yield temp
+
+
+
+
     return render(request,"edit_questionnaire.html",{"form_list":inner()})
