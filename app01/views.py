@@ -73,29 +73,6 @@ def edit_questionnaire(request,pid):
       :param pid: 问卷id
       :return:
       '''
-
-    #
-    # que_list = models.Question.objects.filter(questionnaire_id=pid)
-    # if not que_list:
-    #     #新创建的问卷，还没有问题：
-    #     form_list = []
-    #     form = QuestionModelForm()
-    #     form_list.append(form)
-    # else:
-    #     form_list = []
-    #     for que in que_list:
-    #         form = QuestionModelForm(instance=que)
-    #         form_list.append(form)
-    #
-    #         option_models_list = []
-    #         option_list = models.Option.objects.filter(question=que)
-    #         for option in option_list:
-    #             print(option)
-    #             op = OptionModelForm(instance=option)
-    #             print(op)
-    #             option_models_list.append(op)
-
-
     def inner():
         que_list = models.Question.objects.filter(questionnaire_id=pid)#获取当前问卷的所有问题
         if not que_list:#如果没有，表示该问卷还没有问题
