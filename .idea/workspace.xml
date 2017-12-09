@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a31be862-8a88-4691-af2a-8a46fb92d94d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/9be7e1f7-7fa7-4c04-b20a-64c14731b826.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/9be7e1f7-7fa7-4c04-b20a-64c14731b826.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app01/views.py" afterPath="$PROJECT_DIR$/app01/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/question/urls.py" afterPath="$PROJECT_DIR$/question/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/edit_questionnaire.css" afterPath="$PROJECT_DIR$/static/css/edit_questionnaire.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/edit_ques.js" afterPath="$PROJECT_DIR$/static/js/edit_ques.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base.html" afterPath="$PROJECT_DIR$/templates/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/edit_questionnaire.html" afterPath="$PROJECT_DIR$/templates/edit_questionnaire.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/login.html" afterPath="$PROJECT_DIR$/templates/login.html" />
-    </list>
+    <list default="true" id="a31be862-8a88-4691-af2a-8a46fb92d94d" name="Default" comment="" />
     <ignored path="question.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
