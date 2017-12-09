@@ -9,4 +9,6 @@ urlpatterns = [
     url(r'^add_questionnaire/$', views.add),
     url(r'^login/$', views.login),
     url(r'^edit_questionnaire/(\d+)/$', views.edit_questionnaire),
+    url(r'^student/evaluate/(\d+)/(\d+)/$', views.score),
+
 ]

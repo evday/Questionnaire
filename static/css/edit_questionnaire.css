@@ -57,3 +57,10 @@ ol {
 .table {
     margin-top: 10px;
 }
+.col_fork{
+     font-size: 30px;
+    color: gainsboro;
+}
+.btn_style{
+    margin-left: 950px;margin-bottom: 10px
+}
